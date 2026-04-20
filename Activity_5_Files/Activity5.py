@@ -14,7 +14,7 @@ with open(file_path, "w", encoding="utf-8") as file:
 print(f"File saved to: {file_path.resolve()}")
 
 # ============================================================
-# PROCEDURE 2 — Reading from a File
+#2 — Reading from a File
 if file_path.exists():
     with open(file_path, "r", encoding="utf-8") as file:
         content = file.read()
@@ -26,7 +26,7 @@ with open(file_path, "r", encoding="utf-8") as file:
             print(f"Line {line_number}: {line.strip()}")
 
 # ============================================================
-# PROCEDURE 3 — Appending Data
+#3 — Appending Data
 with open(file_path, "a", encoding="utf-8") as file:
     file.write("\nThis line was added!")
 print("Data appended successfully.")
@@ -38,7 +38,7 @@ print("Additional data appended successfully.")
 
 
 # ============================================================
-# PROCEDURE 4 — Safe File Operations with Backup
+#4 — Safe File Operations with Backup
 
 from datetime import datetime
 import shutil
@@ -75,7 +75,7 @@ for backup in backup_dir.glob("*backup*"):
     print("-", backup.name)
 
 # ============================================================
-# PROCEDURE 5 — Menu-Driven File Manager
+#5 — Menu-Driven File Manager
 def file_manager():
     file_name = input("\nEnter filename (e.g., notes.txt): ")
     fp = backup_dir / file_name
