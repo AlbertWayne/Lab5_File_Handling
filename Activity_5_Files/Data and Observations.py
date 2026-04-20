@@ -57,11 +57,12 @@ if file_path.exists():
 else:
     print(f"No file found to delete at: {file_path}")
 
-# No. 10 - Create Directory
+#10 - Create Directory
 new_dir = documents_path / f"data_{student_id}"
 new_dir.mkdir(parents=True, exist_ok=True)
 print(f"Subdirectory created at: {new_dir}")
-# No. 11 - Write JSON File
+
+#11 - Write JSON File
 import json
 data_dir = documents_path / f"data_{student_id}"
 data_dir.mkdir(parents=True, exist_ok=True)
@@ -70,20 +71,21 @@ file_path = data_dir / f"student_{student_id}.json"
 with file_path.open("w") as f:
     json.dump(data, f, indent=4)
 print(f"JSON file written at: {file_path}")
-# No. 12 - Read JSON File
+
+#12 - Read JSON File
 import json
 json_file = documents_path / f"data_{student_id}" / f"student_{student_id}.json"
 with json_file.open("r") as f:
     data = json.load(f)
 print(data)
 
-# No. 13 - Write CSV File
+#13 - Write CSV File
 import csv
 csv_file = documents_path / f"students_{student_id}.csv"
 rows = [
     ["Name", "Student ID", "Score"],
     ["Eddie", "2025-1001", 90],
-    ["Jeffy", "2025-1002", 67],
+    ["Jeff", "2025-1002", 67],
     [student_name, student_id, 95]
 ]
 with csv_file.open("w", newline='') as f:
@@ -91,26 +93,27 @@ with csv_file.open("w", newline='') as f:
     writer.writerows(rows)
 print(f"CSV file created at: {csv_file}")
 
-# No. 14 - Read CSV File
+#14 - Read CSV File
 with csv_file.open("r") as f:
     reader = csv.reader(f)
     for row in reader:
         print(row)
 
-# No. 15 - File Not Found Handling
+#15 - File Not Found Handling
 missing_file = documents_path / f"missing_file_{student_id}.txt"
 try:
     print(missing_file.read_text())
 except FileNotFoundError:
     print(f"File not found for Student ID: {student_id}")
-# No. 16 - Count .txt Files
+
+#16 - Count .txt Files
 txt_files = list(documents_path.glob("*.txt"))
 print(f"Student ID: {student_id}")
 print(f"Found {len(txt_files)} .txt files in {documents_path}")
 for file in txt_files:
     print(file.name)
 
-# No. 17 - File Metadata
+#17 - File Metadata
 import os
 import time
 file_path = documents_path / f"intro_{student_id}.txt"
@@ -123,7 +126,7 @@ if file_path.exists():
 else:
     print(f"File {file_path.name} not found for Student ID: {student_id}")
 
-# No. 18 - Uppercase and Number Lines
+#18 - Uppercase and Number Lines
 file_path = documents_path / f"lines_{student_id}.txt"
 if not file_path.exists():
     sample_lines = ["Line 1", "Line 2", "Line 3"]
@@ -134,7 +137,8 @@ with file_path.open("w") as f:
     for i, line in enumerate(lines, 1):
         f.write(f"{i}: {line.upper()}\n")
 print(f"Lines formatted and updated in file: {file_path}")
-# No. 19 - Reverse File Content
+
+#19 - Reverse File Content
 file_path = documents_path / f"lines_{student_id}.txt"
 if not file_path.exists():
     sample_lines = ["Line 1", "Line 2", "Line 3"]
@@ -146,7 +150,7 @@ with file_path.open("w") as f:
     f.write("\n".join(lines))
 print(f"File lines reversed for Student ID: {student_id}")
 
-# No. 20 - Merge Two Files
+#20 - Merge Two Files
 f1 = documents_path / f"intro_{student_id}.txt"
 f2 = documents_path / f"lines_{student_id}.txt"
 merged = documents_path / f"merged_{student_id}.txt"
