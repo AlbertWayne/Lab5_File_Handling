@@ -1,5 +1,0 @@
-Welcome Albert Wayne O. Legaspi (ID: 2025-0476) to File Handling in Python!
-This is a new line.
-3: LINE 3
-2: LINE 2
-1: LINE 1
